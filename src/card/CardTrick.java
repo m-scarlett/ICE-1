@@ -61,6 +61,9 @@ public class CardTrick {
 
         for (int i = 0; i < magicHand.length; i++) {
             if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
+                System.out.println(
+                    "Lucky card found at position " + (i + 1)
+                );
                 found = true;
                 break;
             }
