@@ -30,15 +30,20 @@ public class CardTrick {
             c.setSuit(Card.SUITS[rand.nextInt(4)]);
             magicHand[i] = c;
         }
-        //insert code to ask the user for Card value and suit, create their card using scanner
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Pick any card!");
-        System.out.print("\nEnter the card value (1-13): ");
-        int value = scanner.nextInt();
-        System.out.print("Enter the card suit (Hearts = 0, Diamonds = 1, Spades = 2, Clubs = 3): ");
-        int suit = scanner.nextInt();
+
         
-        scanner.close();
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit(Card.SUITS[3]);
+
+        System.out.println(
+            "Lucky Card: " 
+            + luckyCard.getValue() + " of " 
+            + luckyCard.getSuit()
+        );
+
+
+
         
         System.out.println("\nMagic Hand:");
 
@@ -50,20 +55,12 @@ public class CardTrick {
             );
         }
 
-
-        // and search magicHand here
-        Card usersCard = new Card();
-        usersCard.setValue(value);
-        usersCard.setSuit(Card.SUITS[suit]);
+       
 
         boolean found = false;
 
         for (int i = 0; i < magicHand.length; i++) {
-            if (magicHand[i].getValue() == usersCard.getValue()
-                    && magicHand[i].getSuit().equals(usersCard.getSuit())) {
-
-                //Then report the result here
-                System.out.println("Card FOUND at position " + i+1);
+            if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
                 found = true;
                 break;
             }
@@ -73,8 +70,7 @@ public class CardTrick {
             System.out.println("Card NOT found in the magic hand.");
         }
 
-        
-        // add one luckcard hard code 2,clubs
+
     }
     
 }
